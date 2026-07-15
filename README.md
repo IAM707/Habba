@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎴 Habba | هبّة — Jeddah Restaurant Matchmaker
 
-## Getting Started
+![Status: Sprint 0](https://img.shields.io/badge/Status-Sprint%200%3A%20Foundation%20%26%20Architecture-blue?style=flat-square)
+![Next.js](https://img.shields.io/badge/Next.js-15+-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=flat-square&logo=typescript)
+![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL%20%2B%20RLS-3ECF8E?style=flat-square&logo=supabase)
 
-First, run the development server:
+> A guest-first, gamified restaurant discovery and matchmaking application tailored for Jeddah, Saudi Arabia. Built to cure dining decision fatigue without forcing user sign-ups.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Project State: Sprint 0 Baseline
+This repository currently contains the **Next.js App Router foundation**, architectural blueprints, security boundaries, and AI developer workflows. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+In accordance with strict engineering guidelines, **we do not claim planned backend features, Supabase migrations, authentication, or live APIs as currently implemented.** The current phase focuses on system design, database modeling, and frontend prototyping. 
 
-## Learn More
+The single source of truth for our technical roadmap, security boundary, and database schema can be found in [`docs/DEVELOPMENT_WORKFLOW.md`](./docs/DEVELOPMENT_WORKFLOW.md).
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💡 The Problem & The Vision
+Most dining discovery platforms feel like bloated spreadsheets or force users to create social accounts just to save a location. **Habba (هبّة)** takes a different approach:
+* **The Vibe Check:** Instead of endless scrolling, users select an immediate dining mood (*Chilled Specialty Coffee*, *Heavy Feast*, *Trending / Viral*, or *Hidden Gems*).
+* **The Matchmaker Deck:** A fluid, Tinder-style card interface that allows users to swipe right (*Crave*) or swipe left (*Skip*) to build an instant, real-time shortlist.
+* **Deterministic Decision Engine:** Once a shortlist is built, our "Help Me Choose" algorithm picks the optimal location based on real-time opening hours, proximity, and user preference signals.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🏛️ Core Architectural Principles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1. Guest-First Local Storage (`localStorage` Architecture)
+We prioritize immediate user value over account acquisition. 
+* Saving a restaurant works **instantaneously** without a sign-in modal.
+* We utilize a versioned, local-first JSON index (`jrs:favorites`) with multi-tab synchronization and quota management.
+* Server-side authentication (Supabase Auth & `account_favorites` table) is strictly an **optional upgrade** for cross-device sync and backup, executed via idempotent database merge functions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. Bilingual & RTL-First Design
+Designed deliberately for the Saudi market. We do not rely on CSS auto-flipping; layouts, typography, and database search queries are engineered from day one to support **Arabic (RTL)** and **English (LTR)** natively.
+
+### 3. Strict Security & Database Discipline
+* Every exposed table and storage bucket enforces **Row-Level Security (RLS)**.
+* Schema modifications are handled exclusively through reviewed, ordered PostgreSQL migrations.
+* Service-role keys are strictly isolated to server-only execution boundaries and never leaked to client bundles.
+
+---
+
+## 🧰 Tech Stack & Tools
+
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Frontend** | Next.js (App Router), React, TypeScript | Server-rendered public pages, SEO optimization, and type safety. |
+| **Styling** | Tailwind CSS / CSS Variables | Responsive, high-contrast dark theme optimized for mobile viewports. |
+| **Backend / DB** | Supabase (PostgreSQL) | Relational data, full-text bilingual search, and Row-Level Security. |
+| **AI Workflow** | Claude Code / Agent Standards | Strict automated coding rules enforced via `AGENTS.md` and `CLAUDE.md`. |
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── docs/
+│   └── DEVELOPMENT_WORKFLOW.md   # Master product, backend, RLS, and delivery roadmap
+├── src/
+│   └── app/                      # Next.js App Router root layout and initial views
+├── AGENTS.md                     # Engineering expectations & automated PR completion rules
+├── CLAUDE.md                     # CLI developer guidelines and build commands
+└── README.md                     # You are here
