@@ -1,12 +1,12 @@
-# Jeddah Restaurant Search — Agent Guide
+# Habba — Agent Guide
 
 ## Project state and source of truth
 
-This repository currently contains only a minimal Next.js foundation and product-planning documentation. It deliberately does **not** contain product features, a Supabase project, database migrations, authentication, analytics, or a Git repository yet. Do not claim that planned behavior is implemented.
+This repository currently contains only a minimal Next.js foundation and product-planning documentation. It deliberately does **not** contain product features, a Supabase project, database migrations, authentication, analytics, or a Git repository yet. Do not claim that planned behavior is implemented. Git is initialized; inspect the working tree and preserve existing changes.
 
 Before editing, inspect the relevant repository files, package scripts, nearby code, and this guide. For Next.js behavior, read the relevant guide in `node_modules/next/dist/docs/`; this installed Next.js version may differ from older examples. Treat the repository and official documentation as the source of truth.
 
-`docs/DEVELOPMENT_WORKFLOW.md` is the current product, backend, security, SEO, responsive-design, and delivery plan. Keep it current whenever an implementation decision changes its assumptions.
+[`docs/PRODUCT_DESIGN.md`](docs/PRODUCT_DESIGN.md) is the current Habba product and experience specification. [`docs/DEVELOPMENT_WORKFLOW.md`](docs/DEVELOPMENT_WORKFLOW.md) is the public backend, security, SEO, responsive-design, and delivery plan. Keep both current whenever an implementation decision changes their assumptions. Detailed personal sprints remain in the ignored `notes/` directory.
 
 ## Engineering expectations
 
@@ -25,12 +25,15 @@ Before editing, inspect the relevant repository files, package scripts, nearby c
 Optimize for a visitor who lands from search, social media, or a shared link, decides quickly, perhaps saves or shares one restaurant, and leaves without joining a social platform.
 
 - Browsing, search, swipe discovery, restaurant pages, directions, and local saves must work without sign-in.
+- Habba is a decision engine: guided choice returns exactly three honest, explainable recommendations only when three verified branches qualify. Swiping is optional and every swipe action needs visible button, keyboard, and desktop alternatives.
 - A save must succeed immediately and say “Saved on this device.” No sign-in modal may block it.
 - Sign-in is an optional upgrade for cross-device sync, backup, recovery, collaborative lists, notifications, and cross-device personalization.
 - Every feature must deliver immediate value, work reasonably on a slow mobile connection, tolerate leaving midway, and progressively enhance the initial experience.
 - Do not add backend complexity merely to look advanced. Use the prioritization criteria and staged roadmap in the workflow document.
 - Never display “Open now” when operating-hours data is absent, stale, or uncertain.
 - Restaurant facts used in UI or structured data must be verified and actually available on the rendered page. Never fabricate ratings, reviews, prices, hours, or business facts.
+- Customer-feedback observations, including “before you go” warnings, are distinct from verified facts. They require a permitted source, moderation, appropriate context/freshness, and clear labelling; do not scrape or copy Google Maps review text or rating data without a compliant approved implementation.
+- Follow the Arabic-first RTL visual, interaction, responsive, state, and explicit-exclusion requirements in `docs/PRODUCT_DESIGN.md`. Do not add delivery, cart, social feed, chatbot, fake live wait times, fake ratings/reviews, or forced registration.
 
 ## Planned security boundary
 
@@ -42,6 +45,7 @@ Until the database design is implemented, follow these non-negotiable rules:
 - Verify admin and moderator privileges server-side from a protected authorization source, never from a client-editable profile field or browser claim.
 - Service-role credentials are server-only and never appear in client bundles, `NEXT_PUBLIC_*` variables, committed files, logs, or examples.
 - New tables, views, functions, Storage buckets, and related joins require an explicit RLS/security review. Related tables must not leak drafts, soft-deleted records, or private reports.
+- The future merchant stretch uses protected `profiles.role`, nullable `restaurants.owner_id`, and a narrow server/database allowlist. A merchant never receives broad catalogue update access.
 
 The planned authorization matrix and test cases in `docs/DEVELOPMENT_WORKFLOW.md` are design requirements, not a substitute for actual migration tests.
 
@@ -58,7 +62,8 @@ The planned authorization matrix and test cases in `docs/DEVELOPMENT_WORKFLOW.md
 - Turn substantial work into a small vertical slice with acceptance criteria, risks, test strategy, rollout/rollback considerations, and a clear out-of-scope list.
 - Keep commits coherent: one intent per commit; do not mix a feature with unrelated refactors or formatting.
 - Update `docs/DEVELOPMENT_WORKFLOW.md` when product scope, security design, analytics, SEO, or test requirements change.
-- Do not initialize Git unless the human developer explicitly asks. When Git exists later, inspect status before making edits and preserve unrelated changes.
+- Update `docs/PRODUCT_DESIGN.md` when product copy, information architecture, recommendation rules, visual direction, component behavior, responsive layouts, or prototype-flow requirements change. Keep the private implementation backlog aligned when delivery order changes. Document in the completion report which specification sections changed and the tests/checks that cover the implementation.
+- Do not reinitialize Git, rewrite history, or discard changes. Inspect status before editing and preserve unrelated work.
 
 ## Required completion report
 
