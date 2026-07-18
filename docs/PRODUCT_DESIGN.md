@@ -40,11 +40,11 @@ Before implementation, create and review a small visual prototype at mobile and 
 
 ### Sprint 0 visual decision
 
-The public brand treatment is the English wordmark `Habba`; Arabic remains the primary language for feature names, interface copy, and content. Do not use an invented Arabic transliteration as a second logo.
+The official bilingual name is `Habba` in English and `هبّة` in Arabic. Arabic remains the primary interface language.
 
-The responsive exploration at `/` validates a warm coastal-neutral direction with these initial interface tokens: Sand 50 `#F5F0E7`, Ink 900 `#18322F`, Coral 600 `#C9472F`, Sea 600 `#176B6B`, and keyboard focus blue `#005FCC`. These tokens are suitable for the first implementation slice but remain revisable after real licensed imagery and longer content are tested. Tahoma/Arial and Georgia are system-font fallbacks for the exploration, not a final licensed typography decision.
+The responsive exploration at `/` validates a quiet boutique-café direction with Cream `#FFF8E9`, Soft Beige `#FFF0D5`, Black `#111111`, and Natural Wood `#A66F45`. The darker Wood Text `#8B5A38` derivative is used only where small text needs stronger contrast. Alexandria is the Arabic interface font and Nunito is the English font. Layouts are spacious, centered, and editorial; cards use large rounded corners and very restrained shadows; primary actions are small black pill buttons.
 
-The exploration deliberately includes long Arabic and English text, Arabic-Indic and Latin numerals, an honest image placeholder, missing-hours copy, 44-pixel controls, visible focus, mobile stacking, desktop comparison, logical inline CSS properties, and reduced-motion handling.
+The main restaurant card answers “Is this right for us tonight?” quickly: generic placeholder photo, name, cuisine, area, compact tags, price level, the prominent “why it fits” line, honest unavailable states for unverified rating/hours/travel time, and one details action. A group signal appears only in a shared-decision context. Menus, long descriptions, phone numbers, facility lists, and excess tags belong on the details page.
 
 ## Information architecture
 
