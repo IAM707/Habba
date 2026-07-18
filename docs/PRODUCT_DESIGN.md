@@ -38,6 +38,14 @@ Habba should feel like a contemporary Jeddah editorial guide: warm, composed, an
 
 Before implementation, create and review a small visual prototype at mobile and desktop widths. Lock exact colour, type, spacing, and component tokens only after contrast, RTL, image, and accessibility checks.
 
+### Sprint 0 visual decision
+
+The public brand treatment is the English wordmark `Habba`; Arabic remains the primary language for feature names, interface copy, and content. Do not use an invented Arabic transliteration as a second logo.
+
+The responsive exploration at `/` validates a warm coastal-neutral direction with these initial interface tokens: Sand 50 `#F5F0E7`, Ink 900 `#18322F`, Coral 600 `#C9472F`, Sea 600 `#176B6B`, and keyboard focus blue `#005FCC`. These tokens are suitable for the first implementation slice but remain revisable after real licensed imagery and longer content are tested. Tahoma/Arial and Georgia are system-font fallbacks for the exploration, not a final licensed typography decision.
+
+The exploration deliberately includes long Arabic and English text, Arabic-Indic and Latin numerals, an honest image placeholder, missing-hours copy, 44-pixel controls, visible focus, mobile stacking, desktop comparison, logical inline CSS properties, and reduced-motion handling.
+
 ## Information architecture
 
 | Surface | Phase | Purpose |

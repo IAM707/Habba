@@ -30,6 +30,7 @@ Available scripts:
 
 - [Product design](docs/PRODUCT_DESIGN.md) — product goal, experience rules, design direction, and route requirements.
 - [Development workflow](docs/DEVELOPMENT_WORKFLOW.md) — data, security, architecture, delivery, and release decisions.
+- [Catalogue contract](docs/CATALOGUE_CONTRACT.md) — public branch identity, controlled values, provenance, and publication rules.
 - `notes/IMPLEMENTATION_BACKLOG.md` — private sprint-by-sprint execution checklist.
 - `notes/backend-idea.md` — private Supabase learning capstone; it is not committed product scope.
 

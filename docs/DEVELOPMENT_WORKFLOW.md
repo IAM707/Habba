@@ -37,6 +37,8 @@ Store only facts that the source supports. Unknown hours, phone, price, coordina
 
 Regular hours and exceptions use `Asia/Riyadh`. Display “Open now” only after complete, fresh, conflict-free branch hours and exception handling are implemented.
 
+The field meanings, controlled values, provenance requirements, and publication checklist are defined in [CATALOGUE_CONTRACT.md](CATALOGUE_CONTRACT.md). The private 25-branch sheet is candidate research only and must not be imported or presented publicly without field-level review.
+
 ## Next.js boundaries
 
 - Use Server Components and direct server-side data access for public catalogue pages, metadata, and protected data. Do not make server pages call the app’s own Route Handlers.
