@@ -70,12 +70,12 @@ Target the primary mobile design at 390 × 844 while remaining usable from 320 p
 
 - Location label: `جدة`.
 - Search placeholder: `مطعم، أكلة، حي، أو جو معين...`.
-- Headline: `وش يناسب مزاجك الليلة؟`.
+- Headline: `وش يناسب هبة الليلة؟`.
 - Primary action: `اختَر لي الآن`.
 - Secondary action: `نقرّر سوا`.
 - Use honest editorial collection labels until first-party evidence supports labels such as trending or hidden gem.
 
-### بوصلة مزاجك
+### بوصلة هبة
 
 Show one preference at a time with clear back, continue, exit, progress, and an accessible five-position control. The dimensions are:
 
@@ -96,7 +96,7 @@ Collect only inputs that can change the result:
 - Group type.
 - Must-haves such as parking, quiet seating, family suitability, outdoor seating, or late opening.
 
-Unknown branch data cannot claim to satisfy a must-have. Show an editable `مزاجك الليلة` summary before ranking.
+Unknown branch data cannot claim to satisfy a must-have. Show an editable `هبة الليلة` summary before ranking.
 
 ### Three Matches
 
